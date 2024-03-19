@@ -3,6 +3,12 @@
 [Rozszerzenie do VSCode](https://platformio.org/install/ide?install=vscode)
 [Platform.io Arduino debugging](https://docs.platformio.org/en/latest//tutorials/espressif32/arduino_debugging_unit_testing.html)
 
+| Do inspiracji 
+| -------------
+| https://www.youtube.com/watch?v=I8kNThMZw2c
+| https://www.youtube.com/watch?v=8hlQ0MiowN8&t=23s
+
+
 | Pomysł                                                                                                                             | Średnia ocena |
 | ---------------------------------------------------------------------------------------------------------------------------------- | ------------- |
 | Piano/stack phone robot [https://www.youtube.com/watch?v=XpuGgXe76sI](https://www.youtube.com/watch?v=XpuGgXe76sI)                 | 10            |

@@ -37,7 +37,9 @@
 [filmik 2 (ang)](https://www.youtube.com/watch?v=xyBgbNPrWg8)
 
 ### Lista rzeczy 
-- [ ] !(to)[zdj/lista_uv_2.png]
+
+!(to)[zdj/lista_uv_2.png]
+
 - [ ] laminat z warstwą miedzi
 - [ ] alkohol do mycia i ściereczka
 - [ ] papier ścierny

@@ -38,7 +38,7 @@
 
 ### Lista rzeczy 
 
-!(to)[zdj/lista_uv_2.png]
+![to](zdj/lista_uv_2.png)
 
 - [ ] laminat z warstwą miedzi
 - [ ] alkohol do mycia i ściereczka

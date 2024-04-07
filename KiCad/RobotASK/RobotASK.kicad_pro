@@ -575,7 +575,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../../wydruki/UV/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "RobotASK.step",

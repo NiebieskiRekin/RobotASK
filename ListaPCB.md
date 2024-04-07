@@ -3,7 +3,7 @@
 ## Wymiary laminatu z miedzią:
 - co najmniej o 10mm dłuższe i szersze od wymiarów płytki
 
-![układ](zdj/PCB_na_laminacie.svg)
+![układ](zdj/PCB_na_laminacie.svg) 
 
 #### Wymiary głównej płytki:
 - wszerz (x) 80mm

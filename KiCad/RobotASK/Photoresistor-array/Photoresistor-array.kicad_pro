@@ -479,7 +479,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "../../../wydruki/UV/",
+      "plot": "../../../wydruki/Termotransfer/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "Photoresistor-array.step",

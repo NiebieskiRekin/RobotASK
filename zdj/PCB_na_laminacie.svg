@@ -3,8 +3,8 @@
 
 <svg
    width="165.80901mm"
-   height="137.528mm"
-   viewBox="0 0 165.80901 137.528"
+   height="121.38009mm"
+   viewBox="0 0 165.80901 121.38009"
    version="1.1"
    id="svg1"
    inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.41149828"
-     inkscape:cx="340.22013"
-     inkscape:cy="509.11513"
+     inkscape:zoom="0.71690716"
+     inkscape:cx="374.52548"
+     inkscape:cy="416.37191"
      inkscape:window-width="1536"
      inkscape:window-height="891"
      inkscape:window-x="0"
@@ -121,10 +121,10 @@
      id="layer1"
      transform="translate(-5.4906049,-25.830317)">
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.682001;stroke-dasharray:0.682001, 2.046;stroke-dashoffset:0.2046"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.640712;stroke-dasharray:0.640712, 1.92213;stroke-dashoffset:0.192213"
        id="rect3"
        width="165.80901"
-       height="137.528"
+       height="121.38009"
        x="5.4906049"
        y="25.830317" />
     <rect
@@ -132,87 +132,97 @@
        id="rect1"
        width="79.63221"
        height="49.63221"
-       x="50.183895"
-       y="50.183895" />
+       x="45.6745"
+       y="46.01421" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:0.364806"
+       style="fill:none;stroke:#000000;stroke-width:0.382414"
        id="rect2"
-       width="99.635193"
-       height="14.635194"
-       x="50.182404"
-       y="120.1824" />
+       width="109.61758"
+       height="14.617585"
+       x="45.681812"
+       y="106.02152" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.377088;marker-start:url(#ArrowWide);marker-end:url(#marker6)"
-       d="m 40.36091,149.43589 119.27818,0.48865"
+       d="m 41.212426,133.35206 119.278184,0.48865"
        id="path4" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.282;stroke-dasharray:none;marker-start:url(#marker7);marker-end:url(#marker7)"
-       d="M 35.122856,40.269907 35.235471,144.73009"
+       style="fill:none;stroke:#000000;stroke-width:0.280086;stroke-dasharray:none;marker-start:url(#marker7);marker-end:url(#marker7)"
+       d="m 35.110029,40.266243 0.138269,83.927707"
        id="path5" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.239205;marker-start:url(#marker7-3);marker-end:url(#marker7-3)"
-       d="m 56.018182,100.22644 -0.03659,19.54711"
+       style="fill:none;stroke:#000000;stroke-width:0.233973;marker-start:url(#marker7-3);marker-end:url(#marker7-3)"
+       d="m 56.035705,96.054248 -0.07164,9.552132"
        id="path5-1" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.370001"
-       x="65.203232"
-       y="77.421654"
+       x="60.698078"
+       y="68.3508"
        id="text7"><tspan
          sodipodi:role="line"
          id="tspan7"
-         x="65.203232"
-         y="77.421654">Główna płytka</tspan><tspan
+         x="60.698078"
+         y="68.3508">Główna płytka</tspan><tspan
          sodipodi:role="line"
-         x="65.203232"
-         y="86.241104"
+         x="60.698078"
+         y="77.17025"
          id="tspan12">50 x 80 mm</tspan><tspan
          sodipodi:role="line"
          id="tspan8"
-         x="65.203232"
-         y="95.060555" /></text>
+         x="60.698078"
+         y="85.9897" /></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.370001"
-       x="133.57347"
-       y="37.803268"
+       x="131.55373"
+       y="47.641083"
        id="text7-7"><tspan
          sodipodi:role="line"
          id="tspan8-8"
-         x="133.57347"
-         y="37.803268">Laminat</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.370001"
-       x="58.513168"
-       y="129.74574"
-       id="text7-0"><tspan
-         sodipodi:role="line"
-         x="58.513168"
-         y="129.74574"
-         id="tspan9">Fotorezystory 100 x 15mm</tspan></text>
+         x="131.55373"
+         y="47.641083">Laminat</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.370001"
-       x="78.040535"
-       y="157.2061"
+       x="21.332863"
+       y="35.49176"
+       id="text7-7-9"><tspan
+         sodipodi:role="line"
+         x="21.332863"
+         y="35.49176"
+         id="tspan4">Wymiary laminatu przy marginesie 5mm</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.370001"
+       x="62.832348"
+       y="115.25861"
+       id="text7-0"><tspan
+         sodipodi:role="line"
+         x="62.832348"
+         y="115.25861"
+         id="tspan1">Fotorezystory 110 x 15mm</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.370001"
+       x="79.127541"
+       y="142.68149"
        id="text10"><tspan
          sodipodi:role="line"
          id="tspan10"
          style="stroke-width:0.37"
-         x="78.040535"
-         y="157.2061">min. 120mm</tspan></text>
+         x="79.127541"
+         y="142.68149">min. 120mm</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.370001"
-       x="58.709721"
-       y="112.21163"
+       x="57.076332"
+       y="103.30801"
        id="text10-9"><tspan
          sodipodi:role="line"
-         id="tspan10-6"
-         style="stroke-width:0.37"
-         x="58.709721"
-         y="112.21163">min. 20mm</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.37"
+         x="57.076332"
+         y="103.30801"
+         id="tspan2">min. 10mm</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.370001"
@@ -228,13 +238,13 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.37"
          x="9.1037321"
          y="93.303017"
-         id="tspan11">105mm</tspan></text>
+         id="tspan3">85mm</tspan></text>
     <rect
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.682;stroke-dasharray:0.682, 2.046;stroke-dashoffset:0.2046"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.611587;stroke-dasharray:0.611587, 1.83477;stroke-dashoffset:0.183477"
        id="rect12"
-       width="120"
-       height="105"
-       x="40.341"
-       y="40.341" />
+       width="120.07042"
+       height="84.388412"
+       x="40.796394"
+       y="41.136108" />
   </g>
 </svg>

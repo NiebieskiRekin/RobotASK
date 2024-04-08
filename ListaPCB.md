@@ -1,7 +1,7 @@
 # Lista do wytrawiania PCB
 
 ## Wymiary laminatu z miedzią:
-- co najmniej o 10mm dłuższe i szersze od wymiarów płytki
+- co najmniej o 5mm dłuższe i szersze od każdej krawędzi płytki
 
 ![układ](zdj/PCB_na_laminacie.svg) 
 
@@ -18,7 +18,7 @@
 - odległość wzdłuż (y) pomiędzy otworami (środki) 40mm
 
 #### Wymiary płytki z fotorezystorami:
-- długość płytki (x) 100 mm
+- długość płytki (x) 110 mm
 - szerokość płytki (y) 15mm
 - odległość pomiędzy fotorezystorami (środki) 18,325mm
 - szerokość ekranu 73,3mm
@@ -28,9 +28,10 @@
 #### Otwory na przykręcenie płytki z fotorezystorami:
 - średnica 3mm
 - odległość środka od krawędzi 3mm
-- odległość wszerz (x) pomiędzy środkami otworów 94mm
-- odległość lewego otworu (obok pinów) do krawędzi ekranu 12mm
+- odległość wszerz (x) pomiędzy środkami otworów 104mm
+- odległość lewego otworu (obok pinów) do krawędzi ekranu 22mm
 - odległość prawego otworu (obok napisu) do krawędzi ekranu 8,7mm
+- odległość krawędzi pinu (czarnej podstawy) do krawędzi ekranu 12mm
 
 ## Wariant 1: Termotransfer
 [filmik (pl)](https://www.youtube.com/watch?v=1L4GrPDR9TE)

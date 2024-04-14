@@ -30,7 +30,7 @@
 - olej rzepakowy (kujawski itd) sprawdza się dobrze do nakładania wydruku na folię, aby zapewnić przezroczystość
 - dopóki płytka nie przeszła wytrawiacza to nieudany etap wywoływania można przywrócić do kroku 3. naklejania folii światłoczułej poprzez zmycie resztek folii acetonem
 - poszukaj więcej plastikowych łyżek i łyżeczek oraz uszykuj baniaki z wodą 
-- prażenie sody oczyszczonej (NaHCO3) daje węglan sodu (NaCO3), który ma silny odczyn zasadowy i może przyniesie lepszy efekt
+- prażenie sody oczyszczonej (NaHCO3) daje węglan sodu (Na2CO3), który ma silny odczyn zasadowy i może przyniesie lepszy efekt
 - w tutorialach używane są lampy o dużo słabszej mocy i różnym czasie naświetlania (jedni piszą 20 sekund inni 10 minut)
 	- stary skaner z zamontowanymi w środku czterema świetlówkami UV 9W przez 25s
 	- lampa do tipsów 9W przez 15-20s
@@ -46,7 +46,7 @@
 - Praca nad płytką od momentu oczyszczenia płytki wykonywana w piwnicy lub łazience aż do momentu wytrawienia w wytrawiaczu
 - powszechnie używane wywoływacze:
 	- metakrzemian disodu (Na2SiO3, ten z woreczka "wywoływacz"), [przykladowy link](https://www.tme.eu/pl/details/uni-dev-22g/materialy-do-produkcji-plytek-drukow/ag-termopasty/art-agt-087/), roztwór 10g/1l
-	- soda kalcynowana (NaCO3), **prażona** soda oczyszczona, niżej proces prażenia, Stężenie roztworu wywoływacza to 5g na 0,5 l wody, 
+	- soda kalcynowana (Na2CO3), **prażona** soda oczyszczona, niżej proces prażenia, Stężenie roztworu wywoływacza to 5g na 0,5 l wody, 
 	- do folii nie nadaje się żaden roztwór NaOH 
 
 > "soda kalcynowana, którą można kupić w sklepach internetowych lub wykonać samodzielnie z sody oczyszczonej: blachę wyłożyć papierem do pieczenia, wysypać sodę i wstawić do rozgrzanego do 200 stopni C piekarnika na godzinę" [link](https://zielonyogrodek.pl/dom-i-balkon/porady-domowe/15606-czy-mozesz-samodzielnie-zrobic-tabletki-do-zmywarki-tak-i-to-bardzo-latwo-oto-nasze-przepisy)

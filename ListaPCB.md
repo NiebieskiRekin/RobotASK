@@ -12,14 +12,14 @@
 - otwory na komponenty 1mm
 
 #### Otwory na przykręcenie głównej płytki:
-- średnica 5mm
-- odległość środka od krawędzi 5mm
-- odległość wszerz (x) pomiędzy otworami (środki) 70mm
-- odległość wzdłuż (y) pomiędzy otworami (środki) 40mm
+- średnica 3mm
+- odległość środka od krawędzi 3mm
+- odległość wszerz (x) pomiędzy otworami (środki) 74mm
+- odległość wzdłuż (y) pomiędzy otworami (środki) 44mm
 
 #### Wymiary płytki z fotorezystorami:
 - długość płytki (x) 110 mm
-- szerokość płytki (y) 15mm
+- szerokość płytki (y) 17mm
 - odległość pomiędzy fotorezystorami (środki) 18,325mm
 - szerokość ekranu 73,3mm
 - otwory na goldpiny o średnicy 1mm

@@ -16,8 +16,10 @@ int last_servo_degrees[n] = {0};            // Last angle the servomotor was set
 int servo_released_degrees[n] = {0};        // Angle at which the servo's handle doesn't touch the screen, modified in setup
 uint32_t temp_time = 0;                     // Temporary variable that stores time passed between servo presses, modified in loop
 uint16_t photoresistor_value = 0;           // Temporary variable that stores values read by the photoresistor, modified in loop
-const int bufsize = 32;                     // Size of the buffer for storing data coming from Serial
-char buffer[bufsize];                       // Input buffer for receiving data from Serial
+#ifdef DEBUG
+const int bufsize = 32; // Size of the buffer for storing data coming from Serial
+char buffer[bufsize];   // Input buffer for receiving data from Serial
+#endif
 
 // ╔───────────────────────╗
 // │Adjust parameters below│

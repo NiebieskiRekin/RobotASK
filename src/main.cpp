@@ -102,7 +102,7 @@ void receive_values_of_parameters_from_serial()
       switch (buffer[0])
       {
       case 'p': // 'p' for photoresistor thresholds
-        sscanf(buffer, "p %d,%d,%d,%d",
+        sscanf(buffer, "p %u,%u,%u,%u",
                &thresholds[0], &thresholds[1], &thresholds[2], &thresholds[3]);
         break;
       case 'd': // 'd' for start delay in ms
@@ -120,6 +120,14 @@ void receive_values_of_parameters_from_serial()
   }
 }
 
+void print_input_format()
+{
+  Serial.println("Input format: ");
+  Serial.println("p %u,%u,%u,%u <- thresholds");
+  Serial.println("d %lu         <- delay");
+  Serial.println("s %d,%d,%d,%d <- servos");
+}
+
 #endif
 
 // Only run once
@@ -128,6 +136,9 @@ void setup()
 #ifdef DEBUG
   // Opening serial port for calibration and debugging
   Serial.begin(115200);
+  Serial.println("...");
+
+  print_input_format();
 
   receive_values_of_parameters_from_serial();
 

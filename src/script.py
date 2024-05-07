@@ -1,8 +1,9 @@
 #!/bin/python3
 
+# export QT_QPA_PLATFORM=xcb 
+
 # TODO: time scale
 # TODO: wartosci
-# TODO: pretty print w terminalu
 # TODO: zmniejszenie jitter / implementacja smooth scrolling za pomocą shift (klatki przejściowe pomiędzy skokami dużych pikseli / bloczków)
 
 # Required dependencies
@@ -71,6 +72,7 @@ def read_line_serial():
     elif line[2] < 0 or line[2] > 1023: # check if measurements make sense
         return None
     # note no time check
+    print(string_photores(line))
     return line
 
 
@@ -129,7 +131,6 @@ def read_bytes_string():
 def live_view(bilateral_filtering):
     while True:
             line = read_line_serial()
-            print(line)
             image = cv2.resize(animate(line), dsize=(1000, 1200), interpolation=cv2.INTER_NEAREST)
             if bilateral_filtering:
                 # a convolution would be much better honestly
@@ -171,6 +172,25 @@ def scrollable_view():
             current_row = min(current_row+1, max_row)
 
 
+def string_list(input_list):
+    s = ""
+    for i in input_list:
+        s += f"{i:>6}|"
+    return s
+
+def string_photores(input_list):
+    s = f"|{(input_list[0]):>6}|"
+    for i in range(input_list[1]):
+        s+= "      |"
+    if (input_list[2] < thresholds[input_list[1]]):
+        s += f"{input_list[2]:>5}*|"
+    else:
+        s += f"{input_list[2]:>6}|"
+    for i in range(3-input_list[1]):
+        s+= "      |"
+    return s
+
+
 def main(thresholds=thresholds, delay=delay, servos=servos):
 
     print("Esc to stop & scroll")
@@ -200,10 +220,20 @@ def main(thresholds=thresholds, delay=delay, servos=servos):
     thresholds = get_thresholds(read_bytes_string(), thresholds)
     delay = get_time(read_bytes_string(), delay)
     servos = get_servos(read_bytes_string(), servos)
+    released_servos = get_servos(read_bytes_string(), [0,0,0,0])
     timestart = get_time(read_bytes_string(), 0)
 
+    print("Thresholds: {"+(",".join(map(str, thresholds)))+"}")
+    print("Start delay in miliseconds: ",delay)
+    print("Pressed degrees delta: {"+(",".join(map(str, servos)))+"}")
+    print("| Type |  S0  |  S1  |  S2  |  S3  |")
+    print("+------+------+------+------+------+")
+    print("Default|"+string_list(released_servos))
+    print("Pressed|"+string_list(servos))
+    print("Starting time: ",timestart)
 
-
+    print("| Time |  P0  |  P1  |  P2  |  P3  |")
+    print("+------+------+------+------+------+")
 
 if __name__ == "__main__":
     try:

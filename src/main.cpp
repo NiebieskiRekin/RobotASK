@@ -116,6 +116,14 @@ void setup()
     servos[i].write(servo_released_degrees[i]);
   }
 
+#ifdef DEBUG
+  for (size_t i = 0; i < n; i++)
+  {
+    Serial.print(String(servo_released_degrees[i]) + " ");
+  }
+  Serial.print("\n");
+#endif
+
   delay(1000);
 
   // Press down all servo handles at once

@@ -2,6 +2,8 @@
 
 # TODO: time scale
 # TODO: wartosci
+# TODO: pretty print w terminalu
+# TODO: zmniejszenie jitter / implementacja smooth scrolling za pomocą shift (klatki przejściowe pomiędzy skokami dużych pikseli / bloczków)
 
 # Required dependencies
 # pip install pyserial opencv-python numpy

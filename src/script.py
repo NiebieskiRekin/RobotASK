@@ -11,8 +11,8 @@ import time
 import cv2
 import math
 
-thresholds = [50, 50, 50, 50]
-delay = 10
+thresholds = [100, 100, 100, 100]
+delay = 30
 servos = [19, -25, 17, -15]
 timestart = 0
 
@@ -23,12 +23,14 @@ serialCom = serial.Serial(port, baudRate, timeout=10, write_timeout=10) # open a
 n = 360_000 # rows of the history
 rows = 40 #  rows of the preview
 title = "Wizualizacja danych z robota" # title of the window
+bilateral_filtering = False
 
 
 
 # data = np.random.randint(1024,size=(n*rows,4),dtype=np.uint16) # mock data
 iters = [0, 0, 0, 0] # pointers to the next row to fill for each column, could be simplified
 data = np.full((n*rows,4),1024,dtype=np.uint16) # full history of measurements
+time_data = np.full((n*rows),0,dtype=np.uint32) # full history of time
 
 def get_slice(i): 
     # Get a slice of data expressed as rbg triplets ready for rendering
@@ -37,6 +39,10 @@ def get_slice(i):
     part = data[i-rows:i, :] # get a slice of data ending at location i
     newpart = np.where(part == 1024, 122, np.where(part < thresholds, 0, 255)) # convert measurement values to single channel rgb
     return np.repeat(newpart[:,:, np.newaxis], 3, axis=2).astype(np.uint8)  # convert single channel rgb to tripple and change type to match opencv
+
+def get_time_slice(i):
+    i = max(rows,i)
+    return time_data[i-rows:i, :] 
 
 
 def animate(line):
@@ -49,10 +55,11 @@ def animate(line):
     if line == None: # line from serial has corrupted data, just re-render the same frame 
         return get_slice(max(iters))
     a = line[1] # which photoresistor (column)
-    i = max(iters)
+    i = iters[a]
+    # data[]
     data[i, a] = line[2] # fill the correct column at next available row with value from the measurement
     iters[a] += 1 # increase column pointer
-    return get_slice(i+1) # render a frame with updated data with i+1 row downmost
+    return get_slice(i) # render a frame with updated data with i+1 row downmost
    
 def read_line_serial():
     # read a line from serial, none if corrupted (lazy check)
@@ -117,14 +124,27 @@ def read_bytes_string():
         return ""
 
 
-def live_view():
+def live_view(bilateral_filtering):
     while True:
             line = read_line_serial()
             print(line)
             image = cv2.resize(animate(line), dsize=(1000, 1200), interpolation=cv2.INTER_NEAREST)
+            if bilateral_filtering:
+                # a convolution would be much better honestly
+                # image = cv2.GaussianBlur(image, (15,15),0)
+                image = cv2.bilateralFilter(image,5,75,75) # apply a blur in one direction basically
             cv2.imshow(title, image)
-            if cv2.waitKey(1) == 27: # esc
+            k = cv2.waitKey(1)
+            if k == 27: # esc
                 scrollable_view()
+            elif k == ord('b'):
+                print("bilateral_filtering: On")
+                bilateral_filtering = True 
+            elif k == ord('n'):
+                print("bilateral_filtering: Off")
+                bilateral_filtering = False 
+
+
 
 def scrollable_view():
     serialCom.close()
@@ -137,6 +157,11 @@ def scrollable_view():
         cv2.imshow(title, image)
         k = cv2.waitKey(1)
         if k == 27: # esc
+            try:
+                pass
+            finally:
+                cv2.destroyAllWindows()
+                serialCom.close()
             exit()
         elif k==ord('w'): # up
             current_row = max(current_row-1,rows)
@@ -182,7 +207,7 @@ if __name__ == "__main__":
     try:
         main()
         cv2.namedWindow(title, cv2.WINDOW_GUI_NORMAL | cv2.WINDOW_AUTOSIZE)
-        live_view()
+        live_view(bilateral_filtering)
 
     except KeyboardInterrupt:
         scrollable_view()

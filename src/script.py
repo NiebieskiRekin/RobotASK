@@ -2,7 +2,6 @@
 
 # export QT_QPA_PLATFORM=xcb 
 
-# TODO: OBRÓT OBRAZU o 180 stopni
 # TODO: time scale
 # TODO: wartosci
 # TODO: zmniejszenie jitter / implementacja smooth scrolling za pomocą shift (klatki przejściowe pomiędzy skokami dużych pikseli / bloczków)
@@ -28,16 +27,12 @@ n = 360_000 # rows of the history
 rows = 40 #  rows of the preview
 title = "Wizualizacja danych z robota" # title of the window
 bilateral_filtering = False
-rotate_matrix = None
-height = 0
-width = 0
 
 
 
-# data = np.random.randint(1024,size=(n*rows,4),dtype=np.uint16) # mock data
+# data = np.random.randint(1024,size=(n*rows,4),dtype=np.uint16)
 iters = [0, 0, 0, 0] # pointers to the next row to fill for each column, could be simplified
 data = np.full((n*rows,4),1024,dtype=np.uint16) # full history of measurements
-time_data = np.full((n*rows),0,dtype=np.uint32) # full history of time
 
 def get_slice(i): 
     # Get a slice of data expressed as rbg triplets ready for rendering
@@ -45,8 +40,7 @@ def get_slice(i):
     i = max(rows,i)
     part = data[i-rows:i, :] # get a slice of data ending at location i
     newpart = np.where(part == 1024, 122, np.where(part < thresholds, 0, 255)) # convert measurement values to single channel rgb
-    return np.repeat(newpart[:,:, np.newaxis], 3, axis=2).astype(np.uint8)  # convert single channel rgb to tripple and change type to match opencv
-    # return cv2.warpAffine(src=image, M=rotate_matrix, dsize=(width, height))
+    return np.repeat(newpart[:,:, np.newaxis], 3, axis=2).astype(np.uint8) # convert single channel rgb to tripple and change type to match opencv
  
 
 def get_time_slice(i):
@@ -65,7 +59,6 @@ def animate(line):
         return get_slice(max(iters))
     a = line[1] # which photoresistor (column)
     i = iters[a]
-    # data[]
     data[i, a] = line[2] # fill the correct column at next available row with value from the measurement
     iters[a] += 1 # increase column pointer
     return get_slice(i) # render a frame with updated data with i+1 row downmost
@@ -137,14 +130,13 @@ def read_bytes_string():
 def live_view(bilateral_filtering):
     while True:
             line = read_line_serial()
+            # line = [0,random.randint(0,3),random.randint(0,1023)]
             image = cv2.resize(animate(line), dsize=(1000, 1200), interpolation=cv2.INTER_NEAREST)
             if bilateral_filtering:
                 # a convolution would be much better honestly
-                # image = cv2.GaussianBlur(image, (15,15),0)
-                image = cv2.bilateralFilter(image,5,75,75) # apply a blur in one direction basically
-            # height, width = image.shape[:2]
-            # rotate_matrix = cv2.getRotationMatrix2D(center=(width/2, height/2), angle=45, scale=1)
-            cv2.imshow(title, image)
+                image = cv2.GaussianBlur(image, (15,15),0)
+                # image = cv2.bilateralFilter(image,5,75,75) # apply a blur in one direction basically
+            cv2.imshow(title, cv2.flip(image,0))
             k = cv2.waitKey(1)
             if k == 27: # esc
                 scrollable_view()
@@ -165,7 +157,7 @@ def scrollable_view():
     print("w - scroll up, s - scroll down")
     while True:
         image = cv2.resize(get_slice(current_row), dsize=(1000, 1200), interpolation=cv2.INTER_NEAREST)
-        cv2.imshow(title, image)
+        cv2.imshow(title, cv2.flip(image,0))
         k = cv2.waitKey(1)
         if k == 27: # esc
             try:
@@ -202,9 +194,8 @@ def string_photores(input_list):
 def main(thresholds=thresholds, delay=delay, servos=servos):
 
     print("Esc to stop & scroll")
-    # serialCom.setDTR(False)
-
     # Send signal to restart arduino over serial
+    # serialCom.setDTR(False)
     time.sleep(2)
     serialCom.flushInput()
     serialCom.setDTR(True)
@@ -253,7 +244,7 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         scrollable_view()
 
-    finally: # ALWAYS executes at the end of the program, no matter what, all exceptions inside are ignored
+    finally: # ALWAYS executes at the end of the program, no matter what
         cv2.destroyAllWindows()
         serialCom.close()
         

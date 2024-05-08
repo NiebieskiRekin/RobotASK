@@ -14,9 +14,9 @@ import time
 import cv2
 import math
 
-thresholds = [100, 100, 100, 100]
-delay = 30
-servos = [19, -25, 17, -15]
+thresholds = [600, 600, 600, 600]
+delay = 100
+servos = [5, -16, 18, -8]
 timestart = 0
 
 
@@ -194,6 +194,7 @@ def string_photores(input_list):
 def main(thresholds=thresholds, delay=delay, servos=servos):
 
     print("Esc to stop & scroll")
+    # serialCom.setDTR(False)
 
     # Send signal to restart arduino over serial
     time.sleep(2)
@@ -238,8 +239,8 @@ def main(thresholds=thresholds, delay=delay, servos=servos):
 if __name__ == "__main__":
     try:
         main()
-        cv2.namedWindow(title, cv2.WINDOW_GUI_NORMAL | cv2.WINDOW_AUTOSIZE)
-        live_view(bilateral_filtering)
+        # cv2.namedWindow(title, cv2.WINDOW_GUI_NORMAL | cv2.WINDOW_AUTOSIZE)
+        # live_view(bilateral_filtering)
 
     except KeyboardInterrupt:
         scrollable_view()

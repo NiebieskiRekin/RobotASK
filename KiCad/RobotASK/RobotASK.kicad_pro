@@ -580,7 +580,7 @@
       "specctra_dsn": "",
       "step": "RobotASK.step",
       "svg": "",
-      "vrml": ""
+      "vrml": "RobotASK.wrl"
     },
     "page_layout_descr_file": ""
   },

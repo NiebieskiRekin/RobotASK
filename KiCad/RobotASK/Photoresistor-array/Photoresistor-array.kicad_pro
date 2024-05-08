@@ -480,12 +480,12 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "../../../wydruki/wiercenia/",
+      "plot": "../../../../Pobrane/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "Photoresistor-array.step",
       "svg": "",
-      "vrml": ""
+      "vrml": "Photoresistor-array.wrl"
     },
     "page_layout_descr_file": ""
   },

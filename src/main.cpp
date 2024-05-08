@@ -31,7 +31,7 @@ uint16_t thresholds[n] = {600, 600, 600, 600}; // Default {500,500,500,500}, Pos
 uint32_t start_delay_ms = 10; // Default 100, Possible integer values >0
 
 // The angular displacement ( released angle - pressed angle) for each servomotor's handle when a black tile is detected. Servos spin counterclockwise.
-int servo_pressed_degrees_delta[n] = {19, -25, 17, -15}; // Default {5, -5, 5, -5}, Possible values such that always (released+delta) in [0°; 180°]
+int servo_pressed_degrees_delta[n] = {5, -16, 16, -8}; // Default {5, -5, 5, -5}, Possible values such that always (released+delta) in [0°; 180°]
 // ─────────────────────────
 
 #ifdef DEBUG
@@ -138,14 +138,14 @@ void setup()
 #endif
 
   // Hold shortly
-  delay(start_delay_ms);
+  delay(100);
 
   // Release all servo handles and begin loop
   for (size_t i = 0; i < n; i++)
   {
     servos[i].write(servo_released_degrees[i]);
   }
-  delay(start_delay_ms);
+  delay(100);
 }
 
 // Run indefinitely in a loop

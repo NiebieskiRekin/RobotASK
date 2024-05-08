@@ -2,6 +2,7 @@
 
 # export QT_QPA_PLATFORM=xcb 
 
+# TODO: OBRÓT OBRAZU o 180 stopni
 # TODO: time scale
 # TODO: wartosci
 # TODO: zmniejszenie jitter / implementacja smooth scrolling za pomocą shift (klatki przejściowe pomiędzy skokami dużych pikseli / bloczków)
@@ -15,8 +16,8 @@ import cv2
 import math
 
 thresholds = [600, 600, 600, 600]
-delay = 100
-servos = [5, -16, 18, -8]
+delay = 25
+servos = [5, -16, 16, -8]
 timestart = 0
 
 
@@ -27,6 +28,9 @@ n = 360_000 # rows of the history
 rows = 40 #  rows of the preview
 title = "Wizualizacja danych z robota" # title of the window
 bilateral_filtering = False
+rotate_matrix = None
+height = 0
+width = 0
 
 
 
@@ -42,6 +46,8 @@ def get_slice(i):
     part = data[i-rows:i, :] # get a slice of data ending at location i
     newpart = np.where(part == 1024, 122, np.where(part < thresholds, 0, 255)) # convert measurement values to single channel rgb
     return np.repeat(newpart[:,:, np.newaxis], 3, axis=2).astype(np.uint8)  # convert single channel rgb to tripple and change type to match opencv
+    # return cv2.warpAffine(src=image, M=rotate_matrix, dsize=(width, height))
+ 
 
 def get_time_slice(i):
     i = max(rows,i)
@@ -136,6 +142,8 @@ def live_view(bilateral_filtering):
                 # a convolution would be much better honestly
                 # image = cv2.GaussianBlur(image, (15,15),0)
                 image = cv2.bilateralFilter(image,5,75,75) # apply a blur in one direction basically
+            # height, width = image.shape[:2]
+            # rotate_matrix = cv2.getRotationMatrix2D(center=(width/2, height/2), angle=45, scale=1)
             cv2.imshow(title, image)
             k = cv2.waitKey(1)
             if k == 27: # esc
@@ -239,8 +247,8 @@ def main(thresholds=thresholds, delay=delay, servos=servos):
 if __name__ == "__main__":
     try:
         main()
-        # cv2.namedWindow(title, cv2.WINDOW_GUI_NORMAL | cv2.WINDOW_AUTOSIZE)
-        # live_view(bilateral_filtering)
+        cv2.namedWindow(title, cv2.WINDOW_GUI_NORMAL | cv2.WINDOW_AUTOSIZE)
+        live_view(bilateral_filtering)
 
     except KeyboardInterrupt:
         scrollable_view()

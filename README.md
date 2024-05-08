@@ -1,5 +1,4 @@
 # Robot ASK - Piano tiles
----
 
 A Piano Tiles (mobile game) hardware autoclicker built on the ATmega328. All electrical sketches and the PCB were designed in [KiCad](https://www.kicad.org/). Code for the microprocessor was written in C++ using Arduino and Servo libraries as well as the [PlatformIO](https://platformio.org/install/ide?install=vscode) VSCode extension.
 

@@ -22,14 +22,13 @@ uint16_t photoresistor_value = 0;           // Temporary variable that stores va
 // ╚───────────────────────╝
 
 // If the measurement value read by photoresistor 'i' is lower than the *threshold* then the servo 'i' moves.
-constexpr uint16_t thresholds[n] = {500, 500, 500, 500}; // Default {500,500,500,500}, Possible integer values 0-1023
+uint16_t thresholds[n] = {600, 600, 600, 600}; // Default {500,500,500,500}, Possible integer values 0-1023
 
-// Minimum value of delay between reading from the same photoresistor in miliseconds (1/1000 s).
-constexpr uint64_t min_delay_ms = 100; // Default 100, Possible integer values >0
+// Starting value of delay between reading from the same photoresistor in miliseconds (1/1000 s).
+constexpr uint64_t start_delay_ms = 100; // Default 100, Possible integer values >0
 
 // The angular displacement ( released angle - pressed angle) for each servomotor's handle when a black tile is detected. Servos spin counterclockwise.
-constexpr int servo_pressed_degrees_delta[n] = {-45, 30, -30, 45}; // Default {-45, 30, -30, 45}, Possible values such that always (released+delta) in [0°; 180°]
-
+constexpr int servo_pressed_degrees_delta[n] = {19, -25, 17, -15}; // Default {5, -5, 5, -5}, Possible values such that always (released+delta) in [0°; 180°]
 // ─────────────────────────
 
 // Only run once
@@ -38,6 +37,23 @@ void setup()
 #ifdef DEBUG
   // Opening serial port for calibration and debugging
   Serial.begin(9600);
+
+  // Print values of parameters
+  Serial.print("Thresholds: {");
+  for (size_t i = 0; i < n; i++)
+  {
+    Serial.print(thresholds[i], DEC);
+  }
+  Serial.print("}\n");
+
+  Serial.println("Start delay in miliseconds: " + int(start_delay_ms));
+
+  Serial.print("Pressed degrees delta: {");
+  for (size_t i = 0; i < n; i++)
+  {
+    Serial.print(servo_pressed_degrees_delta[i], DEC);
+  }
+  Serial.print("}\n");
 #endif
 
   // Fill program specific arrays with all 0
@@ -55,31 +71,36 @@ void setup()
     servos[i].attach(servo_pin[i]);
     // Setting the default position
     servo_released_degrees[i] = servos[i].read();
+
 #ifdef DEBUG
     // Print the value read by servo to the serial monitor
-    Serial.println("Servo " + String(i) + "default position: " + photoresistor_value);
+    Serial.println("Servo " + String(i) + " default position: " + servos[i].read());
 #endif
     // Release all servos
     servos[i].write(servo_released_degrees[i]);
   }
 
-  delay(5000); // wait 5s
+  delay(1000);
 
   // Press down all servo handles at once
   for (int i = 0; i < n; i++)
   {
     servos[i].write(servo_released_degrees[i] + servo_pressed_degrees_delta[i]);
+#ifdef DEBUG
+    // Print the value read by servo to the serial monitor
+    Serial.println("Servo " + String(i) + " pressed position: " + servos[i].read());
+#endif
   }
 
   // Hold shortly
-  delay(100);
+  delay(start_delay_ms);
 
   // Release all servo handles and begin loop
   for (int i = 0; i < n; i++)
   {
     servos[i].write(servo_released_degrees[i]);
   }
-  delay(100);
+  delay(start_delay_ms);
 }
 
 // Run indefinitely in a loop
@@ -91,22 +112,26 @@ void loop()
   {
 
     // if the time since last value read for that specific photoresistor `i` was read
-    // is less than min_delay_ms
-    if (((temp_time = millis()) - last_photoresistor_check[i]) > min_delay_ms)
+    // is less than start_delay_ms
+    if (((temp_time = millis()) - last_photoresistor_check[i]) > start_delay_ms)
     {
       last_photoresistor_check[i] = temp_time; // reset timer
+
+#ifdef DEBUG
+      // Print the value read by photoresistor to the serial monitor
+      Serial.println("Time :" + String(temp_time));
+      Serial.println("Photores " + String(i) + ": " + String(photoresistor_value));
+#endif
 
       // check if the photoresistor `i` value is less than the threshold parameter
       // Note that the threshold value should be adjusted
       // In other words, this if clause detects black tiles
       if ((photoresistor_value = analogRead(photoresistor_pin[i])) < thresholds[i])
       {
-
 #ifdef DEBUG
-        // Print the value read by photoresistor to the serial monitor
-        Serial.println("Photores " + String(i) + ": " + String(photoresistor_value));
+        // Print photoresistor detected
+        Serial.println("Photores " + String(i) + "detected");
 #endif
-
         // Move the servomotor handle to press on the screen
         last_servo_degrees[i] = servo_released_degrees[i] + servo_pressed_degrees_delta[i];
       }

@@ -15,9 +15,8 @@ uint64_t last_lit[n] = {0,0,0,0};
 int last_servo_degrees[n] = {0,0,0,0};
 uint16_t temp_time = 0;
 uint16_t photoresistor_value = 0;
-
 // Change parameters depending on empirical measurements
-constexpr uint16_t thresholds[n] = {30,30,30,30};
+constexpr uint16_t thresholds[n] = {500,500,500,500};
 constexpr uint64_t min_delay_ms = 100;
 constexpr int servo_pressed_degrees = 45;
 constexpr int servo_released_degrees = 0;

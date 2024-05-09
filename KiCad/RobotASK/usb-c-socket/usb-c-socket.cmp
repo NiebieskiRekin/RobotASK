@@ -1,0 +1,19 @@
+Cmp-Mod V01 Created by PcbNew   date = wto, 2 kwi 2024, 19:44:04
+
+BeginCmp
+TimeStamp = 421e77f3-d8bc-4636-9b23-46ae1ff92a73
+Path = /4a70c857-b5b9-4641-b34c-92419c8cc94b
+Reference = J1;
+ValeurCmp = USB_C_Receptacle;
+IdModule  = Connector_USB:USB_C_Receptacle_G-Switch_GT-USB-7010ASV;
+EndCmp
+
+BeginCmp
+TimeStamp = d9906ccd-947d-471b-8a27-42e3e1985cbd
+Path = /4ffd5db1-5f51-46b9-8b22-d531d891bc00
+Reference = J2;
+ValeurCmp = Conn_01x04_Socket;
+IdModule  = Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical;
+EndCmp
+
+EndListe

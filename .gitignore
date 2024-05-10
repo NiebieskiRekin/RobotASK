@@ -5,3 +5,4 @@
 .vscode/ipch
 logs/*
 src/a.py
+src/kod_ze_sprawka.cpp
